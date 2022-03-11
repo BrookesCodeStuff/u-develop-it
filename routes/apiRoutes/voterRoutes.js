@@ -95,7 +95,7 @@ router.delete('/voter/:id', (req, res) => {
 
   db.query(sql, req.params.id, (err, result) => {
     if (err) {
-      res.status(400).json({ error: res.message });
+      res.status(400).json({ error: err.message });
     } else if (!result.affectedRows) {
       res.json({
         message: 'Voter not found',
